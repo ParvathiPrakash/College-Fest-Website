@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Byte Beat Melange - Volunteers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DFEBEB; /* Light blue background */
+            color: #000; /* Text color in black */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 5%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #A8D1D1; /* Yellow navigation bar background */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000; /* Text color in black */
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        nav a:hover {
+            color: #000; /* Text color in black on hover */
+        }
+
+        header {
+            background-color: #A8D1D1; /* Yellow header background */
+            padding: 55px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        header h1 {
+            margin: 0;
+            color: #000; /* Text color in black */
+        }
+
+        main {
+            padding: 100px 20px 20px; /* Add top padding to create space for the fixed header */
+        }
+
+        .volunteer-form {
+            background-color: #DFEBEB; /* Light blue form background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .volunteer-form h2 {
+            color: #000; /* Text color in black */
+            margin-top: 0;
+        }
+
+        .volunteer-form p {
+            color: #000; /* Text color in black */
+        }
+
+        .volunteer-form input[type="text"],
+        .volunteer-form input[type="email"],
+        .volunteer-form select,
+        .volunteer-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #000; /* Border color in black */
+            border-radius: 5px;
+        }
+
+        .volunteer-form input[type="submit"] {
+            background-color: #000; /* Background color in black */
+            color: #DFEBEB; /* Text color in light blue */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .volunteer-form input[type="submit"]:hover {
+            background-color: #A8D1D1; /* Background color in yellow on hover */
+            color: #000; /* Text color in black */
+        }
+
+        footer {
+            background: #A8D1D1; /* Yellow footer background */
+            height: 40px; /* Set the height as needed */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000; /* Text color in black */
+        }
+
+        .social-icons {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .social-icons li {
+            margin-right: 10px;
+        }
+
+        .social-icons img {
+            width: 20px; /* Set the width of the social media icons */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="P1.html">Home</a></li>
+            <li><a href="P2_ABOUT.html">About</a></li>
+            <li><a href="P3_EVENTS.html">Events</a></li>
+            <li><a href="P4_CONCERT.html">Concert</a></li>
+            <li><a href="Announcements.html">Announcements</a></li>
+            <li><a href="Team.html">Team</a></li>
+            <li><a href="Help.html">Help</a></li>
+            <li><a href="VolunteerForm.html">Volunteer</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Volunteers</h1>
+    </header>
+
+    <main>
+        <div class="volunteer-form">
+            <h2>Sign Up as a Volunteer</h2>
+            <p>Wanna be a part of our amazing event!? Fill out the form below to sign up as a volunteer!</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <select name="domain" required>
+                    <option value="" disabled selected>Select your domain</option>
+                    <option value="Event Management">Event Management</option>
+                    <option value="Public Relations">Public Relations</option>
+                    <option value="Marketing & Promotion">Marketing & Promotion</option>
+                    <option value="Finance & Sponsorship">Finance & Sponsorship</option>
+                    <option value="Logistics & Operations">Logistics & Operations</option>
+                </select>
+                <p>Semester:</p>
+                <label><input type="radio" name="semester" value="1" required> 1st Sem</label>
+                <label><input type="radio" name="semester" value="3" required> 3rd Sem</label>
+                <label><input type="radio" name="semester" value="5" required> 5th Sem</label>
+                <textarea placeholder="Tell us why you want to be a volunteer and speak about your previous experiences of being a volunteer" rows="4" required></textarea>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Byte Beat Melange. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a></li>
+            <!-- Add more social media icons as needed -->
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Beat Melange</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: white;
+            color: #56456e; 
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            font-family: monospace;
+            color: black;
+            text-align: center;
+            padding: 45px; /* Adjusted padding */
+            margin-top:50px;
+            z-index: 2;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 5%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(14, 13, 13);
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        nav a:hover {
+            color: #a786e4; /* Light purple color on hover */
+        }
+
+        .feature {
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background: linear-gradient(45deg, #9fe79f, #FFFFE0);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            color: black;
+            text-align: center;
+            font-size: 10px;
+            position: relative;
+            z-index: 0;
+        }
+
+        .feature:hover {
+            background-color: #dbc9e2; /* Hover color */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color:#FFFFE0;
+            color: black;
+            padding: 20px; /* Adjusted padding */
+            text-align: center;
+            width: 100%;
+            height: 40px;
+            
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-icons {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px; /* Adjusted margin */
+        }
+
+        .social-icons li {
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="P1.html">Home</a></li>
+            <li><a href="P2_ABOUT.html">About</a></li>
+            <li><a href="P3_EVENTS.html">Events</a></li>
+            <li><a href="P4_CONCERT.html">Concert</a></li>
+            <li><a href="Announcements.html">Announcements</a></li>
+            <li><a href="Help.html">Help</a></li>
+            <li><a href="Team.html">Team</a></li>
+            <li><a href="VolunteerForm.html">Volunteer</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Byte Beat Melange - Reach Us</h1>
+    </header>
+
+    <div class="feature">
+        <img src="email.png" alt="Feature Image 1">
+        <h2>Connect via Email</h2>
+        <p>Drop us an email at team@email.com</p>
+    </div>
+
+    <div class="feature">
+        <img src="phone.jpeg" alt="Feature Image 2">
+        <h2>Call Us Anytime</h2>
+        <p>Reach our support team at +91 1234567890</p>
+    </div>
+
+    <div class="feature">
+        <img src="insta.jpeg">
+        <h2>Follow Us on Instagram</h2>
+        <p>Stay updated with our latest news and updates.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Byte Beat Melange. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a></li>
+            <!-- Add more social media icons as needed -->
+        </ul>
+    </footer>
+</body>
+</html>

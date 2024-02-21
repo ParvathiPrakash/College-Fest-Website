@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEBeat Melange</title>
+    <style>
+        body {
+            background-color: rgb(248, 248, 248);
+            margin: 0;
+        }
+
+        header {
+            background-color: rgb(248, 248, 248);
+            padding: 10px;
+            text-align: center;
+        }
+
+        a.logo {
+            display: block;
+            margin: 20px auto; /* Adjusted margins */
+            position: relative;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 10%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(14, 13, 13);
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        nav a:hover {
+            color: #a786e4; /* Light purple color on hover */
+        }      
+
+        .explore-button {
+            background-color: linear-gradient(45deg, #FFFFE0, #9fe09f);
+            color: rgb(65, 81, 169);
+            text-align:center;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 2px; /* Adjusted margin */
+            display: block;
+            margin-left: 600px;
+            margin-right: 600px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            top: 40%;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .explore-button:hover {
+            background: linear-gradient(45deg, #9fe79f, #FFFFE0); 
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f3d4ff;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="P2_ABOUT.html" class="logo"><img src="logo1.png" alt="logo1"></a>
+        <nav>
+            <ul>
+                <li><a href="P1.html">Home</a></li>
+                <li><a href="P2_ABOUT.html">About</a></li>
+                <li><a href="P3_EVENTS.html">Events</a></li>
+                <li><a href="P4_CONCERT.html">Concert</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <a href="P3_EVENTS.html" id="exploreButton" class="explore-button">Explore</a>
+    <footer>
+        © 2023 BYTEBeat Melange. All rights reserved.
+    </footer>
+</body>
+</html>

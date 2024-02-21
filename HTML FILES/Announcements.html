@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Byte Beat Melange - Announcements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #FFC0CB, #87CEFA); /* Set background color to black */
+            color: white; /* Set font color to white */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 30px;
+            position: fixed;
+            top: 0; /* Adjusted position to the top */
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(to right, #FFC0CB, #87CEFA);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(14, 13, 13);
+            font-weight: bold;
+            padding: 15px;
+        }
+
+        nav a:hover {
+            color: black;
+        }
+
+        header {
+            background: linear-gradient(to right, #FFC0CB, #87CEFA);
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: black;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px; /* Adjusted margin */
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            text-align: center; /* Center the text within each section */
+        }
+
+        .central-image {
+            width: 200px;
+            border-radius: 100%;
+        }
+
+        .announcement {
+            background-color: #f9e8f2;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .announcement:hover {
+            background-color: #f4e3ef;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .announcement h2 {
+            color: #4d427a;
+            margin-top: 0;
+        }
+
+        .announcement p {
+            color: #56456e;
+        }
+
+        footer {
+            background: linear-gradient(to right, #FFC0CB, #87CEFA);
+            height: 40px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        .social-icons {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .social-icons li {
+            margin-right: 10px;
+        }
+
+        .social-icons img {
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="P1.html">Home</a></li>
+            <li><a href="P2_ABOUT.html">About</a></li>
+            <li><a href="P3_EVENTS.html">Events</a></li>
+            <li><a href="P4_CONCERT.html">Concert</a></li>
+            <li><a href="Announcements.html">Announcements</a></li>
+            <li><a href="Team.html">Team</a></li>
+            <li><a href="Help.html">Help</a></li>
+            <li><a href="VolunteerForm.html">Volunteer</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Byte Beat Melange - Announcements</h1>
+    </header>
+
+    <main>
+        
+
+        <section class="announcement">
+            <h2 style="background-color: #b4a0c9; padding: 8px; border-radius: 4px;">SHAZAM</h2>
+            <p>Registerations are closing midnight. Grab your spot!</p>
+        </section>
+
+        <section class="announcement">
+            <h2 style="background-color: #b4a0c9; padding: 8px; border-radius: 4px;">BADMINTON</h2>
+            <p>Venue has been changed! NEW VENUE: MRD STUDENT CENTRE: GYM!</p>
+        </section>
+        <img src="/images/bell.png" alt="Central Image" class="central-image">
+
+        <section class="announcement">
+            <h2 style="background-color: #b4a0c9; padding: 8px; border-radius: 4px;">Concert Artists to be revealed soon;)</h2>
+            <p>Stay tuned for the artist reveal by following us on our Instagram page!</p>
+        </section>
+
+        <section class="announcement">
+            <h2 style="background-color: #b4a0c9; padding: 8px; border-radius: 4px;">Workshops Schedule</h2>
+            <p>New exciting Workshops coming your way this week, stay tuned for Registrations.</p>
+        </section>
+        <!-- Add more announcements as needed -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Byte Beat Melange. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a></li>
+            <!-- Add more social media icons as needed -->
+        </ul>
+    </footer>
+</body>
+</html>

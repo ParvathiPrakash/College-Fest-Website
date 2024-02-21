@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEBeat Melange - Concert</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background: none;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 10%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(12, 12, 157);
+            font-weight: bold;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f183c9;
+        }
+
+        .concert-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        .concert-info {
+            text-align: center;
+            color: rgb(216, 17, 216);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .concert-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .concert-description {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .register-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #c0007a;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-button:hover {
+            background-color: rgb(138, 4, 58);
+        }
+
+        footer {
+            background-color: rgb(35, 27, 147);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 3;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <video autoplay muted loop>
+        <source src="/images/video (1).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="ribbon"></div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="P1.html">Home</a></li>
+                <li><a href="P2_ABOUT.html">About</a></li>
+                <li><a href="P3_EVENTS.html">Events</a></li>
+                <li><a href="P4_CONCERT.html">Concert</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="concert-container">
+        <div class="concert-info">
+            <div class="concert-title">Electrifying Concert Experience</div>
+            <div class="concert-description">
+                Join us for an unforgettable night of music and entertainment. Experience the energy and excitement
+                as talented artists take the stage to create magical moments.
+            </div>
+            <a href="https://payment-gateway.com" class="register-button">Register Now</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 BYTEBeat Melange. All rights reserved.
+    </footer>
+
+</body>
+
+</html>
+

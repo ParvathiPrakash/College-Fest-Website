@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEBeat Melange - Events</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel">
+
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: black;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background: none;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .ribbon {
+            height: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            background: #83b8f1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 10%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 10px;
+            background-color: rgb(5, 5, 174);
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(49, 240, 43);
+            font-size: 120%;
+            font-weight: bold;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e2fa41;
+        }
+
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            margin-top: 120px;
+        }
+
+        .event {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.1);
+        }
+
+        .event img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .event-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-sizing: border-box;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .event:hover .event-info {
+            transform: translateY(0);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .events-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: bold;
+            color: rgb(0, 143, 252);
+            text-shadow: 2px 2px 0px rgb(23, 204, 217);
+            margin-top: 90px;
+        }
+
+        .category-slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 0;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+            top: 70px;
+        }
+
+        .category-slider a {
+            color: #f7f7ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 8px 15px;
+            margin: 30 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .category-slider a::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background-color: rgb(113, 247, 86);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .category-slider a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .events-container {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: rgb(35, 27, 147);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            z-index: 3;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button.register {
+            background-color: linear-gradient(45deg, blue, red);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.register:hover {
+            background-color: linear-gradient(45deg, red, blue);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ribbon"></div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="P1.html">Home</a></li>
+                <li><a href="P2_ABOUT.html">About</a></li>
+                <li><a href="P3_EVENTS.html">Events</a></li>
+                <li><a href="P4_CONCERT.html">Concert</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="category-slider">
+            <a href="#" class="active" data-category="all">ALL</a>
+            <a href="#" data-category="technical">TECHNICAL</a>
+            <a href="#" data-category="cultural">CULTURAL & LITERARY</a>
+            <a href="#" data-category="gaming">GAMING & SPORTS</a>
+            <a href="#" data-category="miscellaneous">MISCELLANEOUS</a>
+        </div>
+        <center>
+            <h3 class="events-heading">EVENTS</h3>
+        </center>
+    </header>
+
+
+    <div class="events-container">
+        <!-- Technical events -->
+        <div class="event" data-category="technical" id="labyrinthEvent">
+            <img src="/images/labyrinth.jpg" alt="labyrinth">
+            <div class="event-info">
+                <h3>Labyrinth</h3>
+                <p>EVENT DETAILS</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="technical" id="techTrekEvent">
+            <img src="/images/tech trek.jpg" alt="tech trek">
+            <div class="event-info">
+                <h3>Tech Trek</h3>
+                <p>Description for Tech Trek event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="technical">
+            <img src= "/images/ROS.jpg" alt="ROS">
+            <div class="event-info">
+                <h3>Int(ROS)ic</h3>
+                <p>Description for Int(ROS)ic event</p>
+            </div>
+        </div>
+
+        <!-- Literary and Cultural events -->
+        <div class="event" data-category="cultural">
+            <img src="/images/verbal vendetta.jpeg" alt="Verbal Vendetta">
+            <div class="event-info">
+                <h3>Verbal Vendetta</h3>
+                <p>Description for Verbal Vendetta event</p>
+            </div>
+        </div>
+        
+        <div class="event" data-category="cultural">
+            <img src="/images/shazam.jpg" alt="Shazam">
+            <div class="event-info">
+                <h3>Shazam</h3>
+                <p>Description for Shazam event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/Kick n crew.gif" alt="Kick N Crew">
+            <div class="event-info">
+                <h3>Kick N Crew</h3>
+                <p>Description for Kick N Crew event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/euphonic.jpg" alt="Euphonic">
+            <div class="event-info">
+                <h3>Euphonic</h3>
+                <p>Description for Euphonic event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/footloose.jpg" alt="Footloose">
+            <div class="event-info">
+                <h3>Footloose</h3>
+                <p>Description for Footloose event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/rhythm reverie.jpg" alt="Rhythm Reverie">
+            <div class="event-info">
+                <h3>Rhythm Reverie</h3>
+                <p>Description for Rhythm Reverie event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/runway.gif" alt="Runway Renaissance">
+            <div class="event-info">
+                <h3>Runway Renaissance</h3>
+                <p>Description for Runway Renaissance event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/shoot from the heart.jpeg" alt="Shoot from the heart">
+            <div class="event-info">
+                <h3>Shoot from the heart</h3>
+                <p>Description for Shoot from the heart event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/billboard's finest.jpg" alt="Billboard's Finest">
+            <div class="event-info">
+                <h3>Billboard's Finest</h3>
+                <p>Description for Billboard's Finest event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/esh.jpg" alt="Esh!">
+            <div class="event-info">
+                <h3>Esh!</h3>
+                <p>Description for Esh! event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/vocal virtuosos.jpg" alt="Vocal Virtuosos">
+            <div class="event-info">
+                <h3>Vocal Virtuosos</h3>
+                <p>Description for Vocal Virtuosos event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/creativi-tee.jpg" alt="Creativi-tee">
+            <div class="event-info">
+                <h3>Creativi-tee</h3>
+                <p>Description for Creativi-tee event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src="/images/the way you see it.gif" alt="The way you see it 2.0">
+            <div class="event-info">
+                <h3>The way you see it 2.0</h3>
+                <p>Description for The way you see it 2.0 event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="cultural">
+            <img src= "/images/comic con.jpg" alt="Comic Con">
+            <div class="event-info">
+                <h3>Comic Con</h3>
+                <p>Description for Comic Con event</p>
+            </div>
+        </div>
+
+        <!-- Sports and Gaming events -->
+        
+    <div class="events-container">
+        <!-- Sports and Gaming events -->
+        <div class="event" data-category="gaming">
+            <img src= "/images/bgmi.jpg" alt="BGMI">
+            <div class="event-info">
+                <h3>BGMI</h3>
+                <p>Description for BGMI event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/valorant.gif" alt="Valorant">
+            <div class="event-info">
+                <h3>Valorant</h3>
+                <p>Description for Valorant event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/fifa_soccer.webp" alt="FIFA">
+            <div class="event-info">
+                <h3>FIFA</h3>
+                <p>Description for FIFA event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/table tennis.jpg" alt="Table Tennis">
+            <div class="event-info">
+                <h3>Table Tennis</h3>
+                <p>Description for Table Tennis event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/8 ball pool.jpg" alt=" 8 Ball Pool">
+            <div class="event-info">
+                <h3>Ball Pool</h3>
+                <p>Description for Ball Pool event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src="/images/badminton.jpg" alt="Badminton">
+            <div class="event-info">
+                <h3>Badminton</h3>
+                <p>Description for Badminton event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/chess.jpg" alt="Chess">
+            <div class="event-info">
+                <h3>Chess</h3>
+                <p>Description for Chess event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src= "/images/carrom.jpg" alt="Carrom">
+            <div class="event-info">
+                <h3>Carro</h3>
+                <p>Description for Carro event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="gaming">
+            <img src="/images/darts.jpg" alt="Darts">
+            <div class="event-info">
+                <h3>Darts</h3>
+                <p>Description for Darts event</p>
+            </div>
+        </div>
+
+        <!-- Miscellaneous events -->
+        <div class="event" data-category="miscellaneous">
+            <img src= "/images/bid2build.jpg" alt="Bid2Build">
+            <div class="event-info">
+                <h3>Bid2Build</h3>
+                <p>Description for Bid2Build event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src= "/images/viral vortex.jpg" alt="Viral Vortex">
+            <div class="event-info">
+                <h3>Viral Vortex</h3>
+                <p>Description for Viral Vortex event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src= "/images/catch me if you can.jpg" alt="Catch me if you can">
+            <div class="event-info">
+                <h3>Catch me if you can</h3>
+                <p>Description for Catch me if you can event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src= "/images/suspect.gif" alt="Suspect">
+            <div class="event-info">
+                <h3>Suspect</h3>
+                <p>Description for Suspect event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src="/images/devil's in the details.jpg"alt="The devil's in the details">
+            <div class="event-info">
+                <h3>The devil's in the details</h3>
+                <p>Description for The devil's in the details event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src="/images/ads.gif" alt="Mads for Ads">
+            <div class="event-info">
+                <h3>Mads for Ads</h3>
+                <p>Description for Mads for Ads event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src="/images/label logic.jpg" alt="Label Logic">
+            <div class="event-info">
+                <h3>Label Logic</h3>
+                <p>Description for Label Logic event</p>
+            </div>
+        </div>
+
+        <div class="event" data-category="miscellaneous">
+            <img src= "/images/50 ka funda.jpg" alt="50 Ka Funda">
+            <div class="event-info">
+                <h3>50 Ka Funda</h3>
+                <p>Description for 50 Ka Funda event</p>
+            </div>
+        </div>
+        
+        
+        <!-- Add this inside the modal-content div -->
+        <div class="modal" id="eventModal">
+            <div class="modal-content">
+                <span class="close close-modal">×</span>
+
+                <div id="labyrinthDetails" style="display: none;">
+                    <h2>Event Details - Labyrinth</h2>
+                    <p>
+                        A thrilling quest where you must unlock the ultimate answer to escape the matrix by deciphering a
+                        cascade of hidden clues in solutions of competitive coding questions, with each code revealing a
+                        single piece of the grand mystery.
+                    </p>
+                    <ul>
+                        <li>Contestants will be working in groups of 3</li>
+                        <li>Duration: 2 hours</li>
+                        <li>Questions of varying difficulty will be given to participants.</li>
+                    </ul>
+                    <p><strong>Prize Pool:</strong> ₹5000<br>
+                        <strong>Date:</strong> 7th November<br>
+                        <strong>Time:</strong> 3:30 PM - 5:30 PM<br>
+                        <strong>Fees:</strong> Rs 200 per team
+                    </p>
+                    <p><strong>Contact Information:</strong> xxxxxxxxxx</p>
+                    <button class="register">Register Now</button>
+                </div>
+
+                <div id="techTrekDetails" style="display: none;">
+                    <h2>Event Details - Tech Trek</h2>
+                    <p>
+                        A description for the Tech Trek event. Add specific details about the event here.
+                    </p>
+                    <ul>
+                        <li>Include relevant details about the Tech Trek event.</li>
+                        <li>You can add bullet points or other information.</li>
+                        <!-- Add more details as needed -->
+                    </ul>
+                    <p><strong>Prize Pool:</strong> <!-- Add prize pool for Tech Trek event --><br>
+                        <strong>Date:</strong> <!-- Add date for Tech Trek event --><br>
+                        <strong>Time:</strong> <!-- Add time for Tech Trek event --><br>
+                        <strong>Fees:</strong> <!-- Add fees for Tech Trek event -->
+                    </p>
+                    <p><strong>Contact Information:</strong> <!-- Add contact information for Tech Trek event --></p>
+                    <button class="register">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const labyrinthEvent = document.querySelector('[data-category="technical"]');
+        labyrinthEvent.addEventListener("click", function () {
+            openModal('labyrinthDetails');
+        });
+
+        const techTrekEvent = document.querySelector('[data-category="technical"]');
+        techTrekEvent.addEventListener("click", function () {
+            openModal('techTrekDetails');
+        });
+
+        const categoryLinks = document.querySelectorAll('.category-slider a');
+        categoryLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const category = link.getAttribute('data-category');
+                filterEventsByCategory(category);
+            });
+        });
+
+        const closeButton = document.querySelector('.close-modal');
+        closeButton.addEventListener('click', function () {
+            closeModal();
+        });
+
+       const registerButton = document.querySelector('.register');
+       registerButton.addEventListener('click', function () {
+        // Your event handling code for the register button
+        // You can open another modal or perform any action here
+        });
+    });
+
+    function openModal(eventDetailsId) {
+        const modal = document.getElementById('eventModal');
+        modal.style.display = 'block';
+
+        const eventDetails = document.getElementById(eventDetailsId);
+        eventDetails.style.display = 'block';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('eventModal');
+        modal.style.display = 'none';
+
+    // Close all event details div
+        const eventDetails = document.querySelectorAll('.event-details');
+        eventDetails.forEach((details) => {
+            details.style.display = 'none';
+        });
+     }
+
+    function filterEventsByCategory(category) {
+        const events = document.querySelectorAll('.event');
+        events.forEach(function (event) {
+            const eventCategory = event.getAttribute('data-category');
+            if (category === 'all' || category === eventCategory) {
+                event.style.display = 'block';
+            } else {
+                event.style.display = 'none';
+            }
+        });
+    }
+
+    </script>
+
+    <footer>
+        &copy; 2023 BYTEBeat Melange. All rights reserved.
+    </footer>
+</body>
+</html>
